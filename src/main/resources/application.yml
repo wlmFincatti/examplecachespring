@@ -1,0 +1,27 @@
+server:
+  port: 8081
+spring:
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
+  datasource:
+    username: sa
+    password: sa
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+  h2:
+    console:
+      path: /h2-console
+      enabled: true
+  cache:
+    caffeine:
+      spec: expireAfterAccess=30s
+    type: redis
+    redis:
+      cache-null-values: false
+      time-to-live: 10000
+  redis:
+    host: localhost
+    port: 6379
